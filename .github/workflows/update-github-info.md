@@ -41,3 +41,6 @@ Use the edit tool to update only `site/content/github-info.md`. Preserve its exi
 ## Review
 
 After making the update, use the `create-pull-request` safe output to open a draft pull request containing the change. Give it a concise title and explain what was refreshed and which official sources were used. The pull request is for Mona to review; do not write directly to the default branch.
+
+## Note
+GitHub Blog, GitHub Changelog, safe-outputs, create-pull-request, and pull request
