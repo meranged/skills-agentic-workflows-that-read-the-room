@@ -19,6 +19,7 @@ network:
   allowed:
     - github.blog
     - github.com
+    - awesome-copilot.github.com
 safe-outputs:
   create-pull-request:
     draft: true
@@ -34,7 +35,8 @@ Keep Mona's GitHub Info website current with a small, useful editorial update.
 2. Read the current `site/content/github-info.md` through the repository API tools before editing it.
 3. Use the web-fetch tool to fetch `https://github.blog/latest/`.
 4. Use the web-fetch tool to fetch `https://github.blog/changelog/`.
-5. Prefer recent items that help developers learn GitHub faster. Verify details against the fetched official sources and include the source for every Blog or Changelog item.
+5. Use the web-fetch tool to fetch `https://awesome-copilot.github.com/workflows/`.
+6. Prefer recent items and useful workflow examples that help developers learn GitHub faster. Verify details against the fetched sources and include the source for every Blog, Changelog, or Awesome Copilot item. Keep all existing sources: `docs.github.com`, `github.blog`, and `github.blog/changelog`; add `https://awesome-copilot.github.com/workflows/` as an additional source when relevant.
 
 ## Update
 
