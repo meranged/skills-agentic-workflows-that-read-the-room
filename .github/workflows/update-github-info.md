@@ -9,7 +9,14 @@ permissions:
   pull-requests: read
 engine:
   id: copilot
-model: gpt-4o-mini
+  bare: true
+  harness:
+    max-retries: 0
+max-turns: 20
+timeout-minutes: 10
+concurrency:
+  group: update-github-info
+  cancel-in-progress: false
 tools:
   edit:
   web-fetch:
