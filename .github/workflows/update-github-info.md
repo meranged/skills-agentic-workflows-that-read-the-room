@@ -9,7 +9,7 @@ permissions:
   pull-requests: read
 engine:
   id: copilot
-model: gpt-4.1-mini
+model: gpt-4.1
 tools:
   edit:
   web-fetch:
