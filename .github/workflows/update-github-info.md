@@ -37,6 +37,7 @@ Keep Mona's GitHub Info website current with a small, useful editorial update.
 4. Use the web-fetch tool to fetch `https://github.blog/changelog/`.
 5. Use the web-fetch tool to fetch `https://awesome-copilot.github.com/workflows/`.
 6. Prefer recent items and useful workflow examples that help developers learn GitHub faster. Verify details against the fetched sources and include the source for every Blog, Changelog, or Awesome Copilot item. Keep all existing sources: `docs.github.com`, `github.blog`, and `github.blog/changelog`; add `https://awesome-copilot.github.com/workflows/` as an additional source when relevant.
+7. Don't read all available articles / posts - 1-2 is enough. Remember, we can run into rate limitation if you read all articles/posts.
 
 ## Update
 
@@ -45,6 +46,3 @@ Use the edit tool to update only `site/content/github-info.md`. Preserve its exi
 ## Review
 
 After making the update, use the `create-pull-request` safe output to open a draft pull request containing the change. Give it a concise title and explain what was refreshed and which official sources were used. The pull request is for Mona to review; do not write directly to the default branch. Do not include a `temporary_id` because this workflow does not need to reference the new pull request later. If a `temporary_id` is ever necessary, use only the canonical format `aw_` followed by 3-12 letters, numbers, or underscores, such as `aw_pr_update`.
-
-## Note
-GitHub Blog, GitHub Changelog, safe-outputs, create-pull-request, and pull request
