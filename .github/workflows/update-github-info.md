@@ -1,56 +1,42 @@
 ---
 name: update-github-info
-description: Refresh the GitHub Info content with concise, source-backed updates for Mona's website.
+description: Draft website updates for Mona's GitHub Info site from official GitHub sources.
 on:
-  schedule: daily
   workflow_dispatch:
-permissions:
-  contents: read
-  pull-requests: read
-engine:
-  id: copilot
-  bare: true
-  harness:
-    max-retries: 0
-max-turns: 20
-timeout-minutes: 10
-concurrency:
-  group: update-github-info
-  cancel-in-progress: false
+  schedule:
+    - cron: '17 9 * * *'
+safe-outputs:
+  create-pull-request:
+    title-prefix: "[mona] "
+    draft: true
+    fallback-as-issue: false
 tools:
   edit:
   web-fetch:
-  github:
-    toolsets: [repos]
 network:
   allowed:
-    - github.blog
     - github.com
+    - github.blog
     - awesome-copilot.github.com
-safe-outputs:
-  create-pull-request:
-    draft: true
 ---
 
-# Update GitHub Info
+# Update Mona's GitHub Info website
 
-Update Mona's GitHub Info website with a small, useful editorial update.
+Read `notes/mona-notes.md` before making changes.
 
-## Research
+Use these sources:
+- `notes/mona-notes.md`
+- GitHub Blog: https://github.blog/latest/
+- GitHub Changelog: https://github.blog/changelog/
+- Awesome Copilot workflows: https://awesome-copilot.github.com/workflows/
 
-1. Read `notes/mona-notes.md` with the GitHub repository API tools and follow its editorial guidance.
-2. Read the current `site/content/github-info.md` with the GitHub repository API tools before editing it.
-3. Use the web-fetch tool to fetch `https://github.blog/latest/`.
-4. Use the web-fetch tool to fetch `https://github.blog/changelog/`.
-5. Use the web-fetch tool to fetch `https://awesome-copilot.github.com/workflows/`.
-6. Prefer recent items that help developers learn GitHub faster. Verify details against the fetched sources and include the source for every Blog, Changelog, or Awesome Copilot item. Use `https://awesome-copilot.github.com/workflows/` as the source for Awesome Copilot workflow entries.
-7. Read external public guidance with web-fetch when it is needed to understand a GitHub feature or workflow detail.
-8. Do not read every available article or post; 1-2 relevant items are enough.
+Web fetch https://awesome-copilot.github.com/workflows/
 
-## Update
+Update `site/content/github-info.md` with concise,
+practical updates for readers and include source context when content comes
+from the GitHub Blog or GitHub Changelog.
 
-Use the edit tool to update only `site/content/github-info.md`. Preserve its existing structure and editorial angle, keep summaries short and practical, and do not invent details. Use GitHub repository API tools for repository guidance and reference files; do not use terminal, CLI, or sandboxed commands to read repository files.
-
-## Review
-
-After making the update, use the `create-pull-request` safe output to open a draft pull request for Mona to review. Do not write directly to the default branch. Give the pull request a concise title and explain what was refreshed and which official sources were used.
+Open a pull request for Mona to review. 
+Use a pull request title that mentions Mona or GitHub Info. 
+Do not write directly to `main`;
+rely on `safe-outputs` with `create-pull-request`.
